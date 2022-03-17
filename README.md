@@ -7,7 +7,7 @@ We recommend to look at the [documentation](https://v3.nuxtjs.org).
 Make sure to install the dependencies
 
 ```bash
-yarn install
+npx nuxi init --template neuvieme-page/nuxt3-starter
 ```
 
 ## Development
