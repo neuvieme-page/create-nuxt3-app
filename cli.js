@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 const sao = require('sao')
+const path = require('path')
+
+const generator = path.resolve(__dirname, './')
 
 const s = sao({ 
-  generator: "./",
+  generator,
   outDir: './output',
   logLevel: 4
 })
