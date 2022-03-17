@@ -1,29 +1,15 @@
-# Nuxt 3 Starter
+# create-nuxt3-app
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+> Create a [nuxt3](https://v3.nuxtjs.org) project in seconds
 
-## Setup
-
-Make sure to install the dependencies
+## Usage
 
 ```bash
-npx nuxi init --template neuvieme-page/nuxt3-starter
+npm init git@github.com:neuvieme-page/nuxt3-starter.git <my-project> 
 ```
 
-## Development
-
-Start the development server on http://localhost:3000
+Or with [yarn](https://yarnpkg.com/en/):
 
 ```bash
-yarn dev
+yarn create git@github.com:neuvieme-page/nuxt3-starter.git <my-project>
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-yarn build
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
