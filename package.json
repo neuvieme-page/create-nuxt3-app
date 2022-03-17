@@ -1,19 +1,21 @@
 {
   "name": "create-nuxt3-app",
+  "bin": "cli.js",
   "private": true,
-  "bin": "cd ./lib/sao-nuxt3-app/ && npm install && node ./cli.js",
+  "version": "1.0.0",
+  "description": "my peachy SAO generator",
+  "files": [
+    "saofile.js",
+    "template"
+  ],
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "start": "node .output/server/index.mjs",
-    "scaffold": "cd ./lib/sao-nuxt3-app/ && npm install && node ./cli.js"
+    "debug": "node ./cli.js"
   },
   "devDependencies": {
-    "nuxt3": "latest"
+    "superb": "^1.3.0"
   },
   "dependencies": {
-    "node-sass": "^7.0.1",
-    "sass": "^1.49.9",
-    "sass-loader": "^12.6.0"
+    "ava": "^0.25.0",
+    "sao": "^1.0.0"
   }
 }
