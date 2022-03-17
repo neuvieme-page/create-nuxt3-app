@@ -5,7 +5,7 @@
 ## Usage
 
 ```bash
-npm init git@github.com:neuvieme-page/nuxt3-starter.git <my-project> 
+npm init git@github.com:neuvieme-page/nuxt3-app.git <my-project> 
 ```
 
 Or with [yarn](https://yarnpkg.com/en/):

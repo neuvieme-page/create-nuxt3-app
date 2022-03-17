@@ -2,7 +2,7 @@
 const sao = require('sao')
 
 const s = sao({ 
-  generator: "./lib/sao-nuxt3-app",
+  generator: "./",
   outDir: './output',
   logLevel: 4
 })
