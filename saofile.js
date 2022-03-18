@@ -1,12 +1,15 @@
 // const { merge, sortByKey } = require('./util')
 
-
+const { join } = require('path')
 var fs = require('fs');
 var { execSync } = require('child_process')
 
 const list = execSync('ls')
 console.log(list.toString())
 
+const test = require(join(__dirname, './util.js'))
+
+console.log(test)
 fs.exists('util.js', function(exists) {
   if (exists) {
     console.log('Util exist')
