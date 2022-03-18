@@ -7,9 +7,19 @@ var { execSync } = require('child_process')
 const list = execSync('ls')
 console.log(list.toString())
 
-const test = require(join(__dirname, './util.js'))
+//passsing directoryPath and callback function
+fs.readdir(__dirname, function (err, files) {
+  //handling error
+  if (err) {
+      return console.log('Unable to scan directory: ' + err);
+  }
+  //listing all files using forEach
+  files.forEach(function (file) {
+      // Do whatever you want to do with the file
+      console.log(file);
+  });
+});
 
-console.log(test)
 fs.exists('util.js', function(exists) {
   if (exists) {
     console.log('Util exist')
