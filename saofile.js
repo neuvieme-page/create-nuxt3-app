@@ -1,8 +1,8 @@
 // const { merge, sortByKey } = require('./util')
 
-var path = require('path');
 
-path.exists('util.js', function(exists) {
+var fs = require('fs');
+fs.exists('util.js', function(exists) {
   if (exists) {
     console.log('Util exist')
   }
