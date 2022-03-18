@@ -1,6 +1,6 @@
 // const { merge, sortByKey } = require('./util')
 
-console.log("Hello", _dirname, __dirname)
+console.log("Hello", __dirname)
 
 function isObject (value)  {
   return !!value &&
