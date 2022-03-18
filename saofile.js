@@ -3,9 +3,13 @@ const pkg = require('./package')
 module.exports = {
   templateData () {
     const three = this.answers.features.includes('three')
+    const gsap = this.answers.features.includes('gsap')
+    const gui = this.answers.features.includes('gui')
 
     return {
-      three
+      three,
+      gui,
+      gsap
     }
   },
   prompts() {
@@ -84,8 +88,6 @@ module.exports = {
         return out
       }
     })
-
-
 
     return actions;
   },
