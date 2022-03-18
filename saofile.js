@@ -1,6 +1,6 @@
 const { merge, sortByKey } = require('./util')
 
-console.log(_dirname)
+console.log("Hello", _dirname, __dirname)
 
 function requireFile (filename) {
   try {
