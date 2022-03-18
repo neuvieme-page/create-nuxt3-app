@@ -23,7 +23,7 @@ module.exports = {
   load (source, generator) {
     const packages = generator.answers.features.map(feature => {
       return this.loadPackage(feature, generator)
-    }) 
+    })
     const pkg = merge(source, ...packages)
     pkg.dependencies = sortByKey(pkg.dependencies)
     pkg.devDependencies = sortByKey(pkg.devDependencies)
