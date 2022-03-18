@@ -28,8 +28,46 @@ const sortByKey = (unsortedObject) => {
   return sortedObject
 }
 
+
+function requireFile (filename) {
+  try {
+    return require(filename)
+  } catch (error) {
+    return {}
+  }
+}
+
+function requireJSON (filename) {
+  return JSON.parse(JSON.stringify(requireFile(filename)))
+}
+
+function loadPackage (name, generator) {
+  if (!name || name === 'none') {
+    return {}
+  }
+  const prefix = name === 'nuxt' ? 'nuxt' : `./frameworks/${name}`
+  const pkg = requireJSON(`${prefix}/package.json`)
+  const pkgHandler = requireFile(`${prefix}/package.js`)
+  return pkgHandler.apply ? pkgHandler.apply(pkg, generator) : pkg
+}
+
+function load (source, generator) {
+  const packages = generator.answers.features.map(feature => {
+    return loadPackage(feature, generator)
+  })
+  const pkg = merge(source, ...packages)
+  pkg.dependencies = sortByKey(pkg.dependencies)
+  pkg.devDependencies = sortByKey(pkg.devDependencies)
+  return pkg
+}
+
+
 module.exports = {
   isObject,
   merge,
-  sortByKey
+  sortByKey,
+  requireFile,
+  requireJSON,
+  loadPackage,
+  load
 }
