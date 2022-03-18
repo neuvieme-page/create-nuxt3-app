@@ -1,5 +1,13 @@
 // const { merge, sortByKey } = require('./util')
 
+var path = require('path');
+
+path.exists('util.js', function(exists) {
+  if (exists) {
+    console.log('Util exist')
+  }
+});
+
 console.log("Hello", __dirname)
 
 function isObject (value)  {
@@ -41,7 +49,7 @@ function requireFile (filename) {
   }
 }
 function requireJSON (filename) {
-  return JSON.parse(JSON.stringify(this.requireFile(filename)))
+  return JSON.parse(JSON.stringify(requireFile(filename)))
 }
 function loadPackage (name, generator) {
   if (!name || name === 'none') {
