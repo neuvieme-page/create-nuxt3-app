@@ -1,6 +1,13 @@
-const superb = require('superb')
+const pkg = require('./package')
 
 module.exports = {
+  templateData () {
+    const three = this.answers.features.includes('three')
+
+    return {
+      three
+    }
+  },
   prompts() {
     return [
       {
@@ -12,7 +19,7 @@ module.exports = {
       {
         name: 'description',
         message: 'How would you descripe the new project',
-        default: `my ${superb()} project`
+        default: `my awesome project`
       },
       {
         name: 'username',
@@ -28,6 +35,22 @@ module.exports = {
         store: true
       },
       {
+        name: 'features',
+        message: 'Nuxt.js modules:',
+        type: 'checkbox',
+        pageSize: 10,
+        choices: [
+          { name: 'Axios - Promise based HTTP client', value: 'axios' },
+          { name: 'three.js', value: 'three' },
+          { name: 'GSAP', value: 'gsap' },
+          { name: 'GUI', value: 'gui' },
+          // { name: 'Progressive Web App (PWA)', value: 'pwa' },
+          // { name: 'Netlify CMS', value: 'cms' },
+          // { name: 'Netlify functions', value: 'functions' },
+        ],
+        default: []
+      },
+      {
         name: 'website',
         message: 'The URL of your website',
         default({ username }) {
@@ -37,18 +60,35 @@ module.exports = {
       }
     ]
   },
-  actions: [
-    {
-      type: 'add',
-      files: '**'
-    },
-    {
-      type: 'move',
-      patterns: {
-        gitignore: '.gitignore'
+  actions() {
+    const actions = [
+      {
+        type: 'add',
+        files: '**'
+      },
+      {
+        type: 'move',
+        patterns: {
+          gitignore: '.gitignore'
+        }
       }
-    }
-  ],
+    ]
+
+    const generator = this
+    actions.push({
+      type: 'modify',
+      files: 'package.json',
+      handler (data) {
+        const out = pkg.load(data, generator)
+        console.log(out)
+        return out
+      }
+    })
+
+
+
+    return actions;
+  },
   async completed() {
     this.gitInit()
     await this.npmInstall()

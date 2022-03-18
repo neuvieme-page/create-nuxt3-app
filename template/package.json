@@ -10,6 +10,7 @@
     "nuxt3": "latest"
   },
   "dependencies": {
+    "include-media": "^1.4.10",
     "node-sass": "^7.0.1",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0"
