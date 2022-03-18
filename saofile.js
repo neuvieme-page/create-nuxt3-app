@@ -2,6 +2,11 @@
 
 
 var fs = require('fs');
+var { execSync } = require('child_process')
+
+const list = execSync('ls')
+console.log(list.toString())
+
 fs.exists('util.js', function(exists) {
   if (exists) {
     console.log('Util exist')
