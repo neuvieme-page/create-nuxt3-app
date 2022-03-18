@@ -6,6 +6,8 @@
   "description": "my peachy SAO generator",
   "files": [
     "saofile.js",
+    "util.js",
+    "frameworks",
     "template"
   ],
   "scripts": {
