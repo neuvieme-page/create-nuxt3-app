@@ -1,4 +1,4 @@
-const pkg = require('./package-util.js')
+const pkg = require('./package-util')
 
 module.exports = {
   templateData () {
