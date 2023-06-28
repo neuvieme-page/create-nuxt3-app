@@ -14,7 +14,7 @@
     "debug": "node ./cli.js"
   },
   "dependencies": {
-    "envinfo": "^7.8.1",
+    "envinfo": "^7.10.0",
     "sao": "^1.0.0"
   }
 }
